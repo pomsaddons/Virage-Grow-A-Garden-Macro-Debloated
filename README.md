@@ -21,4 +21,5 @@ Virage Grow A Garden Macro has a couple of different features it is capable of. 
 - Multi-alts macroing
 - Fast mode/Slow mode
 
+## JOIN THE DISCORD
  https://pomsaddons.xyz
