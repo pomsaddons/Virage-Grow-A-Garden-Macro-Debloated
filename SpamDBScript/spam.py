@@ -1,3 +1,5 @@
+print("script made by msgpack on discord")
+
 import requests
 import urllib.parse
 import os
