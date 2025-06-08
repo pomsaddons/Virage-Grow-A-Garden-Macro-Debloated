@@ -1344,9 +1344,6 @@ if (currentMinute = 0 && currentSecond = 0)
 {
 	remHoneySec := 3600 - (currentMinute * 60 + currentSecond)
 }
-collectPollinatedMin := remHoneySec // 60
-collectPollinatedSec := Mod(remHoneySec, 60)
-collectPollinatedText := (collectPollinatedSec < 10) ? collectPollinatedMin . ":0" . collectPollinatedSec : collectPollinatedMin . ":" . collectPollinatedSec
 tooltipText := ""
 if (selectedSeedItems.Length())
 {	tooltipText .= "Seed Shop: " . seedText . "`n"
@@ -1405,7 +1402,7 @@ SetTimer, #f#kkk%k##k%#kfk#f%fkkk@kfk%kff@kkf##ffkkkkfkkkkk#f@kf, 1000
 if (k@#k@%f##f@fk@%ff@#%fkkk@kfk%kfkk@#k@kkfk#f@f#ff@k#ff#f@@f@ffk)
 {	actionQueue.Push("f#fkf@@fff@kf@kfkk@kf#")
 }
-collectPollinatedAutoActive := 1
+collectPollinatedAutoActive := 0
 SetTimer, k@#k@f%fk#f@kkk%f@#kfkk@#k@kkfk#f@f#ff@k#ff#f@@f@ffk, 1000
 if (selectedHoneyItems.Length())
 {	actionQueue.Push("#kk#fff#@fk@k##ff#@fk#k@")
