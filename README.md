@@ -2,6 +2,7 @@
 A macro for the Roblox game "Grow a Garden"
 
 # this isnt malware, mods are fearmongering, if you really care take a look at the ahk file
+# you can spam the db that logs your stuff
 
  ## Installation
  - First of all, you need to download [AutoHotKey v1.1](https://www.autohotkey.com/) (Not 2.0), and run the installer
