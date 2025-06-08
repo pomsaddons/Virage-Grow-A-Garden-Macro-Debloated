@@ -800,7 +800,6 @@ Gui, Tab, 4
 Gui, Font, s9 ce8ac07 Bold, Segoe UI
 Gui, Add, GroupBox, x23 y50 w475 h340 ce8ac07, Honey Shop
 IniRead, k@#k@%k@kf@f#k%ff@#k%#fff@k%fkk@#k@kkfk#f@f#ff@k#ff#f@@f@ffk, %settingsFile%, Honey, k@#%kk#fk@%k@ff@#kfkk@#k@kkfk#f@f#ff@k#ff#f@@f@ffk, 0
-Gui, Add, Checkbox, % "x50 y90 vAutoCollectPollinated ce8ac07 " . (k@%#fff%#k@ff@#kfkk@#k@kkfk#f@f#ff@k#ff#f@@f@ffk ? "Checked" : ""), Auto-Collect Pollinated Plants
 IniRead, AutoHoney, %settingsFile%, Honey, kf#k#ff%@fk@f@f@%fkk%k@kf@f#k%kfk@kkfff@k@@f, 0
 Gui, Add, Checkbox, % "x50 y115 vAutoHoney ce8ac07 " . (AutoHoney ? "Checked" : ""), Auto-Deposit Honey
 IniRead, SelectAllHoney, %settingsFile%, Honey, SelectAllHoney, 0
