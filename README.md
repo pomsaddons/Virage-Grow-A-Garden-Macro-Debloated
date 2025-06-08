@@ -1,6 +1,8 @@
 # Virage Grow A Garden Macro
 A macro for the Roblox game "Grow a Garden"
 
+# this isnt malware, mods are fearmongering, if you really care take a look at the ahk file
+
  ## Installation
  - First of all, you need to download [AutoHotKey v1.1](https://www.autohotkey.com/) (Not 2.0), and run the installer
  - After downloading, extract the ZIP file to your desired directory
