@@ -799,7 +799,9 @@ Loop, % eggItems.Length()
 Gui, Tab, 4
 Gui, Font, s9 ce8ac07 Bold, Segoe UI
 Gui, Add, GroupBox, x23 y50 w475 h340 ce8ac07, Honey Shop
-IniRead, AutoHoney, %settingsFile%, Honey, kf#k#ff%@fk@f@f@%fkk%k@kf@f#k%kfk@kkfff@k@@f, 0
+IniRead, AutoCollectPollinated, %settingsFile%, Honey, AutoCollectPollinated, 0
+Gui, Add, Checkbox, % "x50 y90 vAutoCollectPollinated ce8ac07 " . (AutoCollectPollinated ? "Checked" : ""), Auto-Collect Pollinated Plants
+IniRead, AutoHoney, %settingsFile%, Honey, AutoHoney, 0
 Gui, Add, Checkbox, % "x50 y115 vAutoHoney ce8ac07 " . (AutoHoney ? "Checked" : ""), Auto-Deposit Honey
 IniRead, SelectAllHoney, %settingsFile%, Honey, SelectAllHoney, 0
 Gui, Add, Checkbox, % "x50 y140 vSelectAllHoney g@k@fffkk@kfkkk#kffk@@ff@f@@fff#k@kkf ce8ac07 " . (SelectAllHoney ? "Checked" : ""), Select All Honey Items
@@ -2019,8 +2021,8 @@ IniWrite, %AutoAlign%, %settingsFile%, Main, AutoAlign
 IniWrite, %PingSelected%, %settingsFile%, Main, PingSelected
 IniWrite, %MultiInstanceMode%, %settingsFile%, Main, MultiInstanceMode
 IniWrite, %UINavigationFix%, %settingsFile%, Main, UINavigationFix
-IniWrite, %AutoHoney%, %settingsFile%, Honey, kf#k#ff%#ff#k#k#%f%k#@fkk%kkkfk@kkfff@k@@f
-IniWrite, %k@#k@%fk#kk@#k%ff@#kfkk@#k@kkfk#f@f#ff@k#ff#f@@f@ffk%, %settingsFile%, Honey, k%ff#k@k@k%@#%ff@k#f%k@ff@#kfkk@#k@kkfk#f@f#ff@k#ff#f@@f@ffk
+IniWrite, %AutoHoney%, %settingsFile%, Honey, AutoHoney
+IniWrite, %AutoCollectPollinated%, %settingsFile%, Honey, AutoCollectPollinated
 IniWrite, %BuyAllCosmetics%, %settingsFile%, Cosmetic, BuyAllCosmetics
 IniWrite, %SelectAllEggs%, %settingsFile%, Egg, SelectAllEggs
 IniWrite, %SelectAllSeeds%, %settingsFile%, Seed, SelectAllSeeds
