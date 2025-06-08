@@ -3,7 +3,6 @@ A macro for the Roblox game "Grow a Garden"
 
  ## Installation
  - First of all, you need to download [AutoHotKey v1.1](https://www.autohotkey.com/) (Not 2.0), and run the installer
- - Once complete, download the most recent version of the Virage Grow A Garden Macro through the most recent [GitHub Release](https://github.com/VirageRoblox/Virage-Grow-A-Garden-Macro/releases/latest)(Download source code ZIP)
  - After downloading, extract the ZIP file to your desired directory
 
 Before starting the macro:
@@ -22,4 +21,4 @@ Virage Grow A Garden Macro has a couple of different features it is capable of. 
 - Multi-alts macroing
 - Fast mode/Slow mode
 
- Discord Server: [https://discord.com/VirageMacros](https://discord.com/invite/BPPSAG8MN5)
+ https://pomsaddons.xyz
