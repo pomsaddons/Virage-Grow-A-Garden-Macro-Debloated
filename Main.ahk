@@ -1701,6 +1701,76 @@ else
 }
 ffkfk%#ff#k#k#%%ffkf#k%ff#ff#f(0, 1, "0")
 ff%k#ff#f%k@@f%@k@kk@f#%@ff@@k(webhookURL, "**[Cosmetics Completed]**")
+Cosmetic1:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("161616161646465606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic2:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("1616161616464626265606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic3:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("16161616164646262626265606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic4:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("1616161616464626262626465606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic5:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("161616161646462626262646165606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic6:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("16161616164646262626264616165606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic7:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("1616161616464626262626461616165606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic8:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("161616161646462626262646161616165606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
+Return
+
+Cosmetic9:
+Sleep, 50
+Loop, 5 {
+    fkfkk@@k@kkk("16161616164646262626264616161616165606")
+    Sleep, % (SavedSpeed = "Ultra") ? 50 : (SavedSpeed = "Max") ? 30 : 200
+}
 Return
 f#kf@fk#f#fkf#k#k#ff#k:
 ffk@%k#@fkk%@f@%@ffk@ffk%ff@@k(webhookURL, "**[Pollenated Plant Collection Cycle]**")
