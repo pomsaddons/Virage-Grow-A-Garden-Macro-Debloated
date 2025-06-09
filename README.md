@@ -6,9 +6,9 @@ A macro for the Roblox game "Grow a Garden"
 # Discord
 https://discord.gg/rGmwK7uAh5
 # Crypto/Robux Donations
-E7pCo1qtuN8McjF22Rig52WufAezwzDYvBbWB69CZbth SOL
-0x416A67BF85eDA16Df9fC4fb7a7AD561aBd9632f7 Polygon
-0x416A67BF85eDA16Df9fC4fb7a7AD561aBd9632f7 ETH
+- E7pCo1qtuN8McjF22Rig52WufAezwzDYvBbWB69CZbth SOL
+- 0x416A67BF85eDA16Df9fC4fb7a7AD561aBd9632f7 Polygon
+- 0x416A67BF85eDA16Df9fC4fb7a7AD561aBd9632f7 ETH
 Robux:
 Dev Product in top left corner of game
 https://www.roblox.com/games/18771414763/NEW-BOX-UPDATE-Ride-A-Box-Down-A-Slide
