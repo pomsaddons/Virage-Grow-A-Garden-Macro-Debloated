@@ -7,6 +7,7 @@ A macro for the Roblox game "Grow a Garden"
 
 # Triage (Virus Sandbox)
 - Main.exe https://tria.ge/250609-1cewnawn19/static1
+- Main(cracked+deobfuscated).ahk https://tria.ge/250609-1dra3scq9s/static1
 # You can spam Virage's DB that logs your information.
 See: https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack/blob/dbscript/spam.py
 
