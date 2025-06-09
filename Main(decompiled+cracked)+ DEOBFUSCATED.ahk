@@ -1035,7 +1035,7 @@ ShowGui:
     Gui, Add, Text, x30 y190 w450 h70, do u have a sentence u want in credits: nah just add me - loadout
     Gui, Add, Text, x40 y210 w200 h20, Extra Resources:
     Gui, Font, s8 cD3D3D3 Underline, Segoe UI
-    Gui, Add, Link, x40 y250 w300 h16,  Check the <a href="https://github.com/Josh-AS/Virage-Grow-A-Garden-Macro-PREMIUM-CRACKED-/">Github</a> for the latest macro updates!
+    Gui, Add, Link, x40 y250 w300 h16,  Check the <a href="https://https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack">Github</a> for the latest macro cracks, updates, and deobnfuscation!
     Gui, Show, w520 h425, Virage GAG Macro (pomjects deobf)
 
 Return
