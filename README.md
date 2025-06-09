@@ -1,10 +1,16 @@
 # Virage Grow A Garden Macro
 A macro for the Roblox game "Grow a Garden"
 
-# this isnt malware, mods are fearmongering, if you really care take a look at the ahk file
-# you can spam the db that logs your stuff
+# VirusTotal
+Main(cracked+deobfuscated).exe: https://www.virustotal.com/gui/file/b2e7bc583bcad2b43f518a1e1177b30cdb16a9c9290ac807e149e40de00d784a
+Main(cracked+deobfuscated).ahk: https://www.virustotal.com/gui/file/0a2d6ad146519f7d939d1703f29d851383b989c37b319ccaed2f1450f5fef883
+
+# You can spam Virage's DB that logs your information.
+See: https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack/blob/dbscript/spam.py
+
 # Discord
 https://discord.gg/rGmwK7uAh5
+
 # Crypto/Robux Donations
 - E7pCo1qtuN8McjF22Rig52WufAezwzDYvBbWB69CZbth SOL
 - 0x416A67BF85eDA16Df9fC4fb7a7AD561aBd9632f7 Polygon/ETH
@@ -31,4 +37,3 @@ Virage Grow A Garden Macro has a couple of different features it is capable of. 
 - Discord Webhook integration
 - Multi-alts macroing
 - Fast mode/Slow mode
-
