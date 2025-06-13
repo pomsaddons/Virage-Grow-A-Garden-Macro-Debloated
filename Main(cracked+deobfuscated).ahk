@@ -1,4 +1,4 @@
-﻿#SingleInstance, Force
+#SingleInstance, Force
 #NoEnv
 SetWorkingDir %A_ScriptDir%
 #WinActivateForce
@@ -844,25 +844,22 @@ Gui, Font, s9 cWhite Bold, Segoe UI
 Gui, Add, GroupBox, x23 y50 w475 h340 cD3D3D3, Credits
 Gui, Add, Picture, x40 y70 w48 h48, % mainDir "Images\\Josh.png"
 Gui, Add, Picture, x200 y70 w48 h48, % mainDir "Images\\Virage.png"
-Gui, Add, Picture, x360 y70 w48 h48, % mainDir "Images\\loadout.png"
 Gui, Font, s10 cWhite Bold, Segoe UI
 Gui, Add, Text, x100 y70 w50 h24, Josh
 Gui, Add, Text, x260 y70 w50 h24, pom
 Gui, Add, Text, x410 y70 w60 h24, Loadout
 Gui, Font, s6 cFFC0CB Italic, Segoe UI
-Gui, Add, Text, x40 y120 w100 h25, Deobfuscation, Crack, Bug Fixes
+Gui, Add, Text, x40 y120 w100 h25, Deobfuscation, Crack, Bug Fixes, OCR
 Gui, Font, s6 cF6F2AF Italic, Segoe UI
-Gui, Add, Text, x200 y120 w100 h25, Crack
-Gui, Font, s6 cWhite Italic, Segoe UI
-Gui, Add, Text, x360 y120 w100 h25, Deobfuscation
+Gui, Add, Text, x200 y120 w100 h25, Crack, Bug Fixing, Polishing
 Gui, Font, s8 cWhite, Segoe UI
 Gui, Add, Text, x30 y145 w450 h70, Selling an ahk script for 500 robux is terrible, anyways ur obfuscator is ass - josh
 Gui, Add, Text, x30 y165 w450 h70, Holy 5 USD in robux yet your still vibecoding autohotkey and still have buggy features, enjoy your nuked db lmfao - pom
-Gui, Add, Text, x30 y195 w450 h70, do u have a sentence u want in credits: nah just add me - loadout
+Gui, Add, Text, x30 y195 w450 h70, thanks to arturo on discord for making a icon for us :D
 Gui, Add, Text, x40 y215 w200 h20, Extra Resources:
 Gui, Font, s8 cD3D3D3 Underline, Segoe UI
-Gui, Add, Link, x40 y250 w300 h16,  Check the <a href="https://https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack">Github</a> for the latest macro cracks, updates, and deobnfuscation!
-Gui, Show, w520 h425, Virage GAG Macro (JoshAS x pom x loadout crack)
+Gui, Add, Link, x40 y250 w300 h16,  Check the <a href="https://https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack">Github</a> for the latest macro cracks, updates, new features, and deobfuscation!
+Gui, Show, w520 h425, Virage GAG Macro (JoshAS x pom crack)
 Return
 
 SaveWebhookButtonHandler:
