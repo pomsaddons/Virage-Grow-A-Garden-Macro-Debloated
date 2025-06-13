@@ -6,9 +6,9 @@ A macro for the Roblox game "Grow a Garden"
 See: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v=office.14)
 
 # VirusTotal
-- Main(cracked+deobfuscated).exe: https://www.virustotal.com/gui/file/d4d120dd55a257ca271f26c5650e6503ed6ad8a1159e69dae3c6cfd28c0594da
+- Main(cracked+deobfuscated).exe: https://www.virustotal.com/gui/file/b8c8e2cfb32d3b7e3207e8590d36248025d02fb303b8809288b8117f30acefc6/behavior
 - Main(cracked+deobfuscated).ahk: https://www.virustotal.com/gui/file/0a2d6ad146519f7d939d1703f29d851383b989c37b319ccaed2f1450f5fef883
-
+- AHK Scripts usually have false flags. This one included. We have attached virus sandbox reports, to show that there is not actually any malware.
 # You can spam Virage's DB that logs your information.
 See: https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack/blob/main/SpamDBScript/main.py
 
