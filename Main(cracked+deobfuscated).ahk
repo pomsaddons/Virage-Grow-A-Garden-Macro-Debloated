@@ -847,7 +847,6 @@ Gui, Add, Picture, x200 y70 w48 h48, % mainDir "Images\\Virage.png"
 Gui, Font, s10 cWhite Bold, Segoe UI
 Gui, Add, Text, x100 y70 w50 h24, Josh
 Gui, Add, Text, x260 y70 w50 h24, pom
-Gui, Add, Text, x410 y70 w60 h24, Loadout
 Gui, Font, s6 cFFC0CB Italic, Segoe UI
 Gui, Add, Text, x40 y120 w100 h25, Deobfuscation, Crack, Bug Fixes, OCR
 Gui, Font, s6 cF6F2AF Italic, Segoe UI
