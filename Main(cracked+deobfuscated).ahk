@@ -382,41 +382,45 @@ return false
 
 
 InventoryItemSearch(itemP := "nil") {
-global UINavigationFix
-if(itemP = "nil") {
-Return
-}
-if (UINavigationFix) {
-NavigateUI("150524150505305", 0)
-TypeString(itemP)
-Sleep, 50
-if (itemP = "recall") {
-NavigateUI("4335505541555055", 1, 1)
-}
-else if (itemP = "pollinated") {
-NavigateUI("22115505544444444441111111155055", 1, 1)
-}
-else if (itemP = "pollen") {
-NavigateUI("2211550554444444444111111155055", 1, 1)
-}
-NavigateUI(10)
-}
-else {
-NavigateUI("1011143333333333333333333311440", 0)
-Sleep, 50
-TypeString(itemP)
-Sleep, 50
-if (itemP = "recall") {
-NavigateUI("2211550554155055", 1, 1)
-}
-else if (itemP = "pollinated") {
-NavigateUI("22115505544444444444444444444441111111155055", 1, 1)
-}
-else if (itemP = "pollen") {
-NavigateUI("2211550554444444444111111155055", 1, 1)
-}
-NavigateUI(10)
-}
+    global UINavigationFix
+    if(itemP = "nil") {
+        Return
+    }
+
+    if (UINavigationFix) {
+        NavigateUI("150524150505305", 0)
+        TypeString(itemP)
+        Sleep, 50
+        if (itemP = "recall") {
+            NavigateUI("4335505541555055", 1, 1)
+        }
+        else if (itemP = "pollinated") {
+            NavigateUI("22115505544444444441111111155055", 1, 1)
+        }
+        else if (itemP = "pollen") {
+            NavigateUI("22115505544444444441155055", 1, 1)
+        }
+
+        NavigateUI(10)
+    }
+    else {
+        NavigateUI("1011143333333333333333333311440", 0)
+        Sleep, 50
+        TypeString(itemP)
+        Sleep, 50
+
+        if (itemP = "recall") {
+            NavigateUI("2211550554155055", 1, 1)
+        }
+        else if (itemP = "pollinated") {
+            NavigateUI("22115505544444444444444444444441111111155055", 1, 1)
+        }
+        else if (itemP = "pollen") {
+            NavigateUI("22115505544444444441155055", 1, 1, , , 200)
+        }
+
+        NavigateUI(10)
+    }
 }
 
 
@@ -441,46 +445,48 @@ Return
 
 
 ShopDialogClick(shopTypeP) {
-Loop, 5 {
-Send, {WheelUp}
-Sleep, 20
-}
-Sleep, 500
-if (shopTypeP = "gear") {
-ClickRelativeToRobloxWindow(midX + 0.4, midY - 0.1)
-}
-else if (shopTypeP = "honey") {
-ClickRelativeToRobloxWindow(midX + 0.4, midY)
-}
-Sleep, 500
-Loop, 5 {
-Send, {WheelDown}
-Sleep, 20
-}
-ClickRelativeToRobloxWindow(midX, midY)
+    Sleep, 100
+    Loop, 4 {
+        Send, {WheelUp}
+        Sleep, 20
+    }
+    Sleep, 300
+    if (shopTypeP = "gear") {
+        ClickRelativeToRobloxWindow(midX + 0.4, midY - 0.1)
+    }
+    else if (shopTypeP = "honey") {
+        ClickRelativeToRobloxWindow(midX + 0.4, midY)
+    }
+    Sleep, 300
+    Loop, 4 {
+        Send, {WheelDown}
+        Sleep, 20
+    }
+    Sleep, 100
+    ClickRelativeToRobloxWindow(midX, midY)
 }
 
 
 HotbarNavigate(selectP := 0, deselectP := 0, keyP := "nil") {
-if ((selectP = 1 && deselectP = 1) || (selectP = 0 && deselectP = 0) || keyP = "nil") {
-Return
-}
-if (deselectP) {
-Send, {%keyP%}
-Sleep, 200
-Send, {%keyP%}
-}
-else if (selectP) {
-Send, {%keyP%}
-}
+    if ((selectP = 1 && deselectP = 1) || (selectP = 0 && deselectP = 0) || keyP = "nil") {
+        Return
+    }
+    if (deselectP) {
+        Send, {%keyP%}
+        Sleep, 200
+        Send, {%keyP%}
+    }
+    else if (selectP) {
+        Send, {%keyP%}
+    }
 }
 
 
-SpamEscape() {
-Loop, 4 {
-Send {Escape}
-Sleep, 100
-}
+SpamEscape(count := 4) {
+    Loop, %count% {
+        Send {Escape}
+        Sleep, 100
+    }
 }
 
 
@@ -523,7 +529,7 @@ NavigateUI("4330320", 1, 1)
 else {
 ToolTip, % "Error In Detecting " . shopTypeP
 SetTimer, HideTooltip, -1500
-SendDiscordWebhook(webhookURL, "Failed To Detect " . shopTypeP . " shopTypeP Opening [Error]" . (PingSelected ? " <@" . discordUserID . ">" : ""))
+SendDiscordWebhook(webhookURL, "Failed To Detect " . shopTypeP . " shop Opening [Error]" . (PingSelected ? " <@" . discordUserID . ">" : ""))
 NavigateUI("3332223111133322231111054105")
 }
 }
@@ -1050,13 +1056,13 @@ StartMacro:
     MsgBox, 16, Error, Please, extract the file before running the macro.
     ExitApp
     }
-    if(!windowIDS.MaxIndex()) {
+    if(!windowIDS.Length()) {
     MsgBox, 0, Message, No Roblox Window Found
     Return
     }
     SendDiscordWebhook(webhookURL, "Macro started.")
     if (MultiInstanceMode) {
-    MsgBox, 1, Multi-Instance Mode, % "You have " . windowIDS.MaxIndex() . " instances open. (Instance ID's: " . idDisplay . ")`nPress OK to start the macro."
+    MsgBox, 1, Multi-Instance Mode, % "You have " . windowIDS.Length() . " instances open. (Instance ID's: " . idDisplay . ")`nPress OK to start the macro."
     IfMsgBox, Cancel
     Return
     }
@@ -1111,22 +1117,23 @@ StartMacro:
     WinActivate, % "ahk_id " . firstWindow
     Gosub, % next
     }
-    if (!actionQueue.MaxIndex()) {
-    cycleFinished := 1
+    if (!actionQueue.Length()) {
+        cycleFinished := 1
     }
     Sleep, 500
     } else {
-    Gosub, ShowCycleTimers
-    if (cycleFinished) {
-    WinActivate, % "ahk_id " . firstWindow
-    cycleCount++
-    SendDiscordWebhook(webhookURL, "[**CYCLE " . cycleCount . " COMPLETED**]")
-    cycleFinished := 0
-    if (!MultiInstanceMode) {
-    SetTimer, HandleReconnect, 5000
-    }
-    }
-    Sleep, 1000
+        Gosub, ShowCycleTimers
+        if (cycleFinished) {
+            WinActivate, % "ahk_id " . firstWindow
+            cycleCount++
+            SendDiscordWebhook(webhookURL, "[**CYCLE " . cycleCount . " COMPLETED**]")
+            Gosub, AlignInstance
+            cycleFinished := 0
+            if (!MultiInstanceMode) {
+                SetTimer, HandleReconnect, 5000
+            }
+        }
+        Sleep, 1000
     }
     }
     Return
@@ -1203,7 +1210,7 @@ CosmeticShopAction:
 
 CollectPollinatedCycleTimer:
     if (cycleCount > 0 && currentMinute = 0 && currentHour != lastCollectPollinatedHour) {
-    lastHoneyShopHour := currentHour
+    lastCollectPollinatedHour := currentHour
     SetTimer, QueueCollectPollinatedAction, -600000
     }
     Return
@@ -1214,8 +1221,8 @@ QueueCollectPollinatedAction:
 
 CollectPollinatedAction:
     currentSection := "CollectPollinatedAction"
-    if (CollectPollinatedCycleTimer) {
-    Gosub, CollectPollinatedRoutine
+    if (AutoCollectPollinated) {
+        Gosub, CollectPollinatedRoutine
     }
     Return
 
@@ -1238,9 +1245,8 @@ HoneyShopAction:
     Return
 
 HoneyDepositCycleTimer:
-    if (cycleCount > 0 && Mod(currentMinute, 5) = 0 && currentMinute != lastDepositHoneyMinute) {
-    lastDepositHoneyMinute := currentMinute
-    SetTimer, QueueHoneyDepositAction, -8000
+    if (cycleCount > 0 && Mod(currentSecond, 45) = 0 && actionQueue.Length() = 0) {
+        SetTimer, QueueHoneyDepositAction, -8000
     }
     Return
 
@@ -1251,7 +1257,7 @@ QueueHoneyDepositAction:
 HoneyDepositAction:
     currentSection := "HoneyDepositAction"
     if (AutoHoney) {
-    Gosub, HoneyDepositRoutine
+        Gosub, HoneyDepositRoutine
     }
     Return
 
@@ -1267,9 +1273,13 @@ ShowCycleTimers:
     gearMin := rem5sec // 60
     gearSec := Mod(rem5sec, 60)
     gearText := (gearSec < 10) ? gearMin . ":0" . gearSec : gearMin . ":" . gearSec
-    depositHoneyMin := rem5sec // 60
-    depositHoneySec := Mod(rem5sec, 60)
+    
+    mod45 := Mod(currentSecond, 45)
+    rem45sec := (mod45 = 0) ? 45 : 45 - mod45
+    depositHoneyMin := rem45sec // 60
+    depositHoneySec := Mod(rem45sec, 60)
     depositHoneyText := (depositHoneySec < 10) ? depositHoneyMin . ":0" . depositHoneySec : depositHoneyMin . ":" . depositHoneySec
+    
     mod30 := Mod(currentMinute, 30)
     rem30min := (mod30 = 0) ? 30 : 30 - mod30
     rem30sec := rem30min * 60 - currentSecond
@@ -1321,7 +1331,7 @@ ShowCycleTimers:
     if (selectedHoneyItems.Length()) {
     tooltipText .= "Honey Shop: " . honeyText . "`n"
     }
-    if (CollectPollinatedCycleTimer) {
+    if (AutoCollectPollinated) {
     tooltipText .= "Collect Pollinated: " . collectPollinatedText . "`n"
     }
     if (tooltipText != "") {
@@ -1357,8 +1367,8 @@ InitializeMacroCycles:
     }
     cosmeticAutoActive := 1
     SetTimer, CosmeticCycleTimer, 1000
-    if (CollectPollinatedCycleTimer) {
-    actionQueue.Push("CollectPollinatedAction")
+    if (AutoCollectPollinated) {
+        actionQueue.Push("CollectPollinatedAction")
     }
     collectPollinatedAutoActive := 1
     SetTimer, CollectPollinatedCycleTimer, 1000
@@ -1593,25 +1603,43 @@ GearCycleRoutine:
     SleepFromSpeed(1200, 2500)
     Send, {e}
     SleepFromSpeed(1500, 5000)
-    ShopDialogClick("gear")
+    ; Perform OCR in the dialog area (right side of window)
+    ocrText := PerformOCRInRobloxWindow(0.6, 0.3, 0.9, 0.7)
+    
+    ; Split OCR text into lines
+    Loop, Parse, ocrText, `n, `r
+    {
+        if (FuzzyMatch(A_LoopField, "Show me the gear shop", 0.7)) {
+            ; Get the center of the Roblox window
+            WinGetPos, winX, winY, winW, winH, ahk_exe RobloxPlayerBeta.exe
+            centerX := winX + (winW * 0.75)  ; Click more towards the right side
+            centerY := winY + (winH * 0.5)
+            
+            ; Click the center of the dialog area
+            Click, %centerX%, %centerY%
+            SleepFromSpeed(2500, 5000)
+            
+            break
+        }
+    }
     SendDiscordWebhook(webhookURL, "**[Gear Cycle]**")
     SleepFromSpeed(2500, 5000)
     Loop, 5 {
-    if (PixelSearchInRobloxWindow(0x00CCFF, 10, 0.54, 0.20, 0.65, 0.325)) {
-    ToolTip, Gear Shop Opened
-    SetTimer, HideTooltip, -1500
-    SendDiscordWebhook(webhookURL, "Gear Shop Opened.")
-    Sleep, 200
-    NavigateUI("33311443333114405550555", 0)
-    Sleep, 100
-    BuyItem("gear")
-    SendDiscordWebhook(webhookURL, "Gear Shop Closed.")
-    gearsCompleted = 1
-    }
-    if (gearsCompleted) {
-    break
-    }
-    Sleep, 2000
+        if (PixelSearchInRobloxWindow(0x00CCFF, 10, 0.54, 0.20, 0.65, 0.325)) {
+            ToolTip, Gear Shop Opened
+            SetTimer, HideTooltip, -1500
+            SendDiscordWebhook(webhookURL, "Gear Shop Opened.")
+            Sleep, 200
+            NavigateUI("33311443333114405550555", 0)
+            Sleep, 100
+            BuyItem("gear")
+            SendDiscordWebhook(webhookURL, "Gear Shop Closed.")
+            gearsCompleted = 1
+        }
+        if (gearsCompleted) {
+            break
+        }
+        Sleep, 2000
     }
     HandleShopClose("gear", gearsCompleted)
     HotbarNavigate(0, 1, "0")
@@ -1935,16 +1963,18 @@ HoneyDepositRoutine:
     Send, {d up}
     SleepFromSpeed(100, 500)
     Loop, 3 {
-    InventoryItemSearch("pollinated")
-    HotbarNavigate(1, 0, "9")
-    SleepFromSpeed(100, 500)
-    Loop, 2 {
-    Send {e}
-    Sleep, 200
-    }
-    depositCount++
-    SendDiscordWebhook(webhookURL, "Depositing/Collecting Honey Try #" . depositCount . ".")
-    Sleep, 1000
+        InventoryItemSearch("pollinated")
+        SpamEscape(2)
+        Sleep, 500
+        HotbarNavigate(1, 0, "9")
+        SleepFromSpeed(100, 500)
+        Loop, 2 {
+            Send {e}
+            Sleep, 200
+        }
+        depositCount++
+        SendDiscordWebhook(webhookURL, "Depositing/Collecting Honey Try #" . depositCount . ".")
+        Sleep, 1000
     }
     HotbarNavigate(0, 1, "0")
     NavigateUI(11110)
@@ -1975,8 +2005,26 @@ HoneyShopRoutine:
     Send, {WheelUp}
     Sleep, 20
     }
-    SleepFromSpeed(500, 2000)
-    ShopDialogClick("honey")
+    SleepFromSpeed(2500, 5000)
+    ; Perform OCR in the dialog area
+    ocrText := PerformOCRInRobloxWindow(0.4, 0.3, 0.9, 0.7)
+    
+    ; Split OCR text into lines
+    Loop, Parse, ocrText, `n, `r
+    {
+        if (FuzzyMatch(A_LoopField, "I want to trade honey", 0.7)) {
+            ; Get the center of the Roblox window
+            WinGetPos, winX, winY, winW, winH, ahk_exe RobloxPlayerBeta.exe
+            centerX := winX + (winW * 0.75)  ; Click more towards the right side
+            centerY := winY + (winH * 0.5)
+            
+            ; Click the center of the dialog area
+            Click, %centerX%, %centerY%
+            SleepFromSpeed(2500, 5000)
+            
+            break
+        }
+    }
     SleepFromSpeed(2500, 5000)
     Loop, 5 {
     if (PixelSearchInRobloxWindow(0x02EFD3, 10, 0.54, 0.20, 0.65, 0.325)) {
@@ -2071,3 +2119,88 @@ F8::
     Return
 
 #MaxThreadsPerHotkey, 2
+
+PerformOCR(x1, y1, x2, y2, windowTitle := "ahk_exe RobloxPlayerBeta.exe") {
+    ; Create temporary file paths
+    tempDir := A_Temp "\OCR_Temp"
+    if !FileExist(tempDir)
+        FileCreateDir, %tempDir%
+    
+    screenshotPath := tempDir "\ocr_screenshot.png"
+    outputPath := tempDir "\ocr_output.txt"
+    
+    ; Capture screenshot using nircmd
+    RunWait, nircmd.exe savescreenshot "%screenshotPath%" %x1% %y1% %x2% %y2%,, Hide
+    
+    ; Perform OCR using Tesseract
+    RunWait, tesseract.exe "%screenshotPath%" "%outputPath%" --psm 6,, Hide
+    
+    ; Read the OCR result
+    FileRead, ocrResult, %outputPath%.txt
+    
+    ; Clean up temporary files
+    FileDelete, %screenshotPath%
+    FileDelete, %outputPath%.txt
+    
+    ; Return the OCR result
+    return Trim(ocrResult)
+}
+
+PerformOCRInRobloxWindow(relX1, relY1, relX2, relY2) {
+    if WinExist("ahk_exe RobloxPlayerBeta.exe") {
+        WinGetPos, winX, winY, winW, winH, ahk_exe RobloxPlayerBeta.exe
+        
+        ; Convert relative coordinates to absolute screen coordinates
+        absX1 := winX + Round(relX1 * winW)
+        absY1 := winY + Round(relY1 * winH)
+        absX2 := winX + Round(relX2 * winW)
+        absY2 := winY + Round(relY2 * winH)
+        
+        return PerformOCR(absX1, absY1, absX2, absY2)
+    }
+    return ""
+}
+
+FuzzyMatch(str1, str2, threshold := 0.8) {
+    ; Convert strings to lowercase for case insensitive comparison
+    StringLower, str1, str1
+    StringLower, str2, str2
+    
+    ; If strings are identical, return true
+    if (str1 = str2)
+        return true
+    
+    ; Calculate Levenshtein distance
+    len1 := StrLen(str1)
+    len2 := StrLen(str2)
+    
+    ; Create matrix
+    matrix := []
+    Loop, % len1 + 1 {
+        row := []
+        Loop, % len2 + 1 {
+            row[A_Index] := A_Index - 1
+        }
+        matrix[A_Index] := row
+    }
+    
+    ; Fill matrix
+    Loop, % len1 {
+        i := A_Index
+        Loop, % len2 {
+            j := A_Index
+            if (SubStr(str1, i, 1) = SubStr(str2, j, 1))
+                matrix[i+1, j+1] := matrix[i, j]
+            else
+                matrix[i+1, j+1] := Min(matrix[i, j] + 1, matrix[i+1, j] + 1, matrix[i, j+1] + 1)
+        }
+    }
+    
+    ; Calculate similarity ratio
+    maxLen := Max(len1, len2)
+    if (maxLen = 0)
+        return true
+    
+    similarity := 1 - (matrix[len1+1, len2+1] / maxLen)
+    return (similarity >= threshold)
+}
