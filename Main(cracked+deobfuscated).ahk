@@ -857,7 +857,7 @@ Gui, Add, Text, x30 y165 w450 h70, Holy 5 USD in robux yet your still vibecoding
 Gui, Add, Text, x30 y195 w450 h70, thanks to arturo on discord for making a icon for us :D
 Gui, Add, Text, x40 y215 w200 h20, Extra Resources:
 Gui, Font, s8 cD3D3D3 Underline, Segoe UI
-Gui, Add, Link, x40 y250 w300 h16,  Check the <a href="https://https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack">Github</a> for the latest macro cracks, updates, new features, and deobfuscation!
+Gui, Add, Link, x40 y250 w300 h16,  Check the <a href="https://github.com/pomsaddons/Virage-Grow-A-Garden-Macro-Premium-Crack">Github</a> for the latest macro cracks, updates, new features, and deobfuscation!
 Gui, Show, w520 h425, Virage GAG Macro (JoshAS x pom crack)
 Return
 
