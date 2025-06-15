@@ -1,4 +1,4 @@
-#SingleInstance, Force
+﻿#SingleInstance, Force
 #NoEnv
 SetWorkingDir %A_ScriptDir%
 #WinActivateForce
@@ -2116,7 +2116,7 @@ F8::
 
 #MaxThreadsPerHotkey, 2
 
-PerformOCR(x1, y1, x2, y2, windowTitle := "ahk_exe RobloxPlayerBeta.exe") {
+PerformOCR(x1, y1, x2, y2, windowTitle := "ahk_exe RobloxPlayerBeta.exe", maxRetries := 3, retryDelay := 1000) {
     ; Create temporary file paths
     tempDir := A_Temp "\OCR_Temp"
     if !FileExist(tempDir)
@@ -2125,24 +2125,34 @@ PerformOCR(x1, y1, x2, y2, windowTitle := "ahk_exe RobloxPlayerBeta.exe") {
     screenshotPath := tempDir "\ocr_screenshot.png"
     outputPath := tempDir "\ocr_output.txt"
     
-    ; Capture screenshot using nircmd
-    RunWait, nircmd.exe savescreenshot "%screenshotPath%" %x1% %y1% %x2% %y2%,, Hide
+    retryCount := 0
+    while (retryCount < maxRetries) {
+        ; Capture screenshot using nircmd
+        RunWait, nircmd.exe savescreenshot "%screenshotPath%" %x1% %y1% %x2% %y2%,, Hide
+        
+        ; Perform OCR using Tesseract
+        RunWait, tesseract.exe "%screenshotPath%" "%outputPath%" --psm 6,, Hide
+        
+        ; Read the OCR result
+        FileRead, ocrResult, %outputPath%.txt
+        
+        ; If we got a non-empty result, return it
+        if (ocrResult != "") {
+            return Trim(ocrResult)
+        }
+        
+        ; If we got an empty result and haven't exceeded max retries, wait and try again
+        retryCount++
+        if (retryCount < maxRetries) {
+            Sleep, %retryDelay%
+        }
+    }
     
-    ; Perform OCR using Tesseract
-    RunWait, tesseract.exe "%screenshotPath%" "%outputPath%" --psm 6,, Hide
-    
-    ; Read the OCR result
-    FileRead, ocrResult, %outputPath%.txt
-    
-    ; Clean up temporary files
-    FileDelete, %screenshotPath%
-    FileDelete, %outputPath%.txt
-    
-    ; Return the OCR result
-    return Trim(ocrResult)
+    ; If we've exhausted all retries, return empty string
+    return ""
 }
 
-PerformOCRInRobloxWindow(relX1, relY1, relX2, relY2) {
+PerformOCRInRobloxWindow(relX1, relY1, relX2, relY2, maxRetries := 3, retryDelay := 1000) {
     if WinExist("ahk_exe RobloxPlayerBeta.exe") {
         WinGetPos, winX, winY, winW, winH, ahk_exe RobloxPlayerBeta.exe
         
@@ -2152,7 +2162,7 @@ PerformOCRInRobloxWindow(relX1, relY1, relX2, relY2) {
         absX2 := winX + Round(relX2 * winW)
         absY2 := winY + Round(relY2 * winH)
         
-        return PerformOCR(absX1, absY1, absX2, absY2)
+        return PerformOCR(absX1, absY1, absX2, absY2, "ahk_exe RobloxPlayerBeta.exe", maxRetries, retryDelay)
     }
     return ""
 }
